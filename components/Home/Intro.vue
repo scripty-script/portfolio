@@ -16,11 +16,16 @@ useSeoMeta({
             placeholder
             format="webp"
         />
-        <h1
-            class="text-xl font-bold tracking-tight text-gray-800 dark:text-gray-100"
-        >
-            Nathaniel Naduaran
-        </h1>
+        <div>
+            <h1
+                class="text-xl font-bold tracking-tight text-gray-800 dark:text-gray-100"
+            >
+                Nathaniel Naduaran
+            </h1>
+            <p class="font-bold text-gray-900 dark:text-gray-400">
+                Mid/Sr. Developer
+            </p>
+        </div>
         <p class="text-gray-900 dark:text-gray-400">
             Hello! I am a developer with expertise in Vue.js and Laravel.
         </p>
