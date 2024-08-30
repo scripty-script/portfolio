@@ -10,6 +10,9 @@ export default defineNuxtConfig({
     "@nuxthq/studio",
     "@vueuse/nuxt"
   ],
+  image: {
+    provider: 'netlify',
+  },
   ui: {
     icons: ["heroicons", "lucide"],
   },
