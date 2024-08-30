@@ -16,6 +16,8 @@ You need to create file named `Searchable.php` under `traits` folder
 ```php
 <?php
 
+<?php
+
 namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -23,23 +25,35 @@ use Illuminate\Support\Str;
 
 trait Searchable
 {
-    public function scopeSearch($query, $search, array $searchable = null)
+    abstract private function searchable(): array;
+
+    public function scopeSearch($query, $search, ?array $searchable = null, $latest = 'created_at')
     {
         $search = trim($search); // Clean up white space
-        $fields = $searchable ?: $this->searchable ?: [];
+        $fields = $searchable ?: $this->searchable() ?: [];
 
-        return $query->where(function (Builder $query) use ($search, $fields) {
-            foreach ($fields as $key => $field) {
-                if (Str::contains($field, '.')) {
-                    [$relationship, $relationshipField] = explode('.', $field);
-                    $query->orWhereHas($relationship, function ($query) use ($relationshipField, $search) {
-                        $query->where($relationshipField, 'like', "%$search%");
-                    });
-                } else {
-                    $query->orWhere($field, 'like', "%$search%");
-                }
+        return $query->when(
+            $search,
+            function (Builder $query) use ($search, $fields) {
+                $query->where(function ($query) use ($search, $fields) {
+                    foreach ($fields as $key => $field) {
+                        if (Str::contains($field, '.')) {
+                            [$relationship, $relationshipField] = explode('.', $field);
+                            $query->orWhereHas($relationship, function ($query) use ($relationshipField, $search) {
+                                $query->where($relationshipField, 'like', "%$search%");
+                            });
+                        } else {
+                            $query->orWhere($field, 'like', "%$search%");
+                        }
+                    }
+                });
             }
-        })->latest();
+        )
+            ->when(
+                $latest,
+                fn ($query, $value) => $query->latest($value),
+                fn ($query) => $query->latest()
+            );
     }
 }
 ```
@@ -77,14 +91,16 @@ class User extends Authenticatable
       'password' => 'hashed',
    ];
 
-   // List of searchable columns
-   // Dot notation for relationships
-   protected array $searchable = [
-      'name',
-      'email',
-
-      // relationship.column,
-   ];
+   private function searchable(): array
+    {
+        return [
+            'name',
+            'email',
+        
+            // Dot notation for relationships ex. at below
+            // relationship.column,
+        ];
+    }
 }
 ```
 
