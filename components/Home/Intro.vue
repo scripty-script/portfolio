@@ -23,24 +23,20 @@ useSeoMeta({
                 Nathaniel Naduaran
             </h1>
             <p class="font-bold text-gray-900 dark:text-gray-400">
-                Mid/Sr. Developer
+                Software Developer
             </p>
         </div>
         <p class="text-gray-900 dark:text-gray-400">
             Hello! I am a developer with expertise in Vue.js and Laravel.
         </p>
         <p class="text-gray-900 dark:text-gray-400">
-            I began my career as a Junior Web Developer at NetlinkVoice, where I
-            was responsible for rebranding the user interface of our main
-            system. In just one month, I was able to successfully launch the
-            updated system with minimal issues. Over the next few months, I
-            worked on multiple projects simultaneously and was quickly promoted
-            to Senior Developer within 10 months. During this time, I refined my
+            I started my career as a Junior Web Developer at NetlinkVoice, where
+            I took on the task of rebranding the user interface of our main
+            system. Within a month, the updated system was successfully launched
+            with minimal issues. Over the following months, I was involved in
+            several projects, which helped me grow significantly as a developer.
+            After 10 months, I took on a more senior role, further refining my
             programming, problem-solving, and time-management skills.
-        </p>
-        <p class="text-gray-900 dark:text-gray-400">
-            Due to my dedication and hard work, I was then promoted to Team Lead
-            Developer, where I am responsible for leading the FAXedge project.
         </p>
         <p class="text-gray-900 dark:text-gray-400">
             I am eager to offer my services with you. Please feel free to
