@@ -1,4 +1,10 @@
 import {
+  Section,
+  SectionHeader,
+  SectionHeaderDescription,
+  SectionHeaderTitle,
+} from "@/components/section";
+import {
   Item,
   ItemContent,
   ItemDescription,
@@ -6,77 +12,67 @@ import {
   ItemHeader,
   ItemTitle,
 } from "@/components/ui/item";
-import { Project, TechStack } from "@/types";
+import { projects } from "@/lib/projects";
+import { techStacks } from "@/lib/tech-stach";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
-      <main className="flex flex-col gap-10 px-5 py-10 sm:px-2">
-        <section>
-          <div className="mb-10 size-16 overflow-hidden rounded-full">
-            <Image
-              className="size-16"
-              src="/headshot-bg.jpg"
-              alt="Headshot"
-              width={64}
-              height={64}
-              priority
-            />
-          </div>
-          <div className="flex flex-col items-start gap-2">
-            <h1 className="text-3xl leading-10 font-semibold tracking-tight">
+      <main className="flex flex-col">
+        <Section className="h-screen items-center justify-between pt-10 pb-0">
+          <SectionHeader className="mb-0">
+            <p className="text-lg leading-10 font-semibold tracking-tight">
               Nathaniel Naduaran
-            </h1>
-            <p>
-              Full-stack developer who loves building things from idea to
-              launch.
             </p>
-          </div>
-        </section>
+            <div className="flex flex-col gap-2">
+              <SectionHeaderTitle as="h1" className="text-3xl lg:text-6xl">
+                Full-stack developer
+              </SectionHeaderTitle>
 
-        <section className="flex flex-col">
-          <h2 className="mb-4 text-2xl leading-10 font-semibold tracking-tight">
-            My Stack
-          </h2>
+              <SectionHeaderDescription>
+                who loves building things from idea to launch.
+              </SectionHeaderDescription>
+            </div>
+          </SectionHeader>
+
+          <Image
+            src="/headshot.png"
+            alt="Headshot"
+            width={400}
+            height={600}
+            priority
+          />
+        </Section>
+
+        <Section className="py-28">
+          <SectionHeader>
+            <SectionHeaderTitle>My Stack</SectionHeaderTitle>
+          </SectionHeader>
           {techStackList()}
-        </section>
+        </Section>
 
-        <section className="flex flex-col">
-          <h2 className="mb-4 text-2xl leading-10 font-semibold tracking-tight">
-            Feature Projects
-          </h2>
+        <Section>
+          <SectionHeader>
+            <SectionHeaderTitle>Feature Projects</SectionHeaderTitle>
+          </SectionHeader>
 
           {featureProjects()}
-        </section>
+        </Section>
       </main>
     </>
   );
 }
 
 function featureProjects() {
-  const projects: Project[] = [
-    {
-      title: "SalarEase",
-      sub_title: "HR System",
-      image: "/salarease-logo.svg",
-    },
-    {
-      title: "FAXedge Technologie",
-      sub_title: "Transforming FAX communication for the modern era.",
-      image: "/faxedge-logo.svg",
-    },
-    {
-      title: "Netlink Voice's Connectware",
-      sub_title: "Voice. Networking, Managed Services",
-      image: "/netlinkvoice-logo.svg",
-    },
-  ];
-
   return (
-    <ItemGroup className="grid grid-cols-2 gap-4">
-      {projects.map((project) => (
-        <Item key={project.title} variant="outline">
+    <ItemGroup className="grid grid-cols-3 gap-5">
+      {Array.from(projects).map(([id, project]) => (
+        <Item key={id} variant="outline" className="relative">
+          <Link className="absolute inset-0" href={`/projects/${id}`}>
+            <span className="sr-only">{project.title}</span>
+          </Link>
           <ItemHeader>
             <Image
               src={project.image}
@@ -98,62 +94,10 @@ function featureProjects() {
 }
 
 function techStackList() {
-  const techStacks: TechStack[] = [
-    {
-      label: "Docker",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
-    },
-    {
-      label: "Laravel",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
-    },
-    {
-      label: "PHP",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
-    },
-    {
-      label: "Vue",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg",
-    },
-    {
-      label: "React",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
-    },
-    {
-      label: "Ansible",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg",
-    },
-    {
-      label: "Inertia",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/inertiajs/inertiajs-original.svg",
-    },
-    {
-      label: "Next js",
-      image: "/next.svg",
-    },
-    {
-      label: "Redis",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg",
-    },
-    {
-      label: "MySql",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg",
-    },
-  ];
-
   return (
     <ItemGroup className="flex flex-row flex-wrap items-center justify-center gap-4">
-      {techStacks.map((tech) => (
-        <Item key={tech.label} variant="outline" className="w-fit">
+      {Array.from(techStacks).map(([id, tech]) => (
+        <Item key={id} variant="outline" className="w-fit">
           <ItemHeader className="flex aspect-square size-20 justify-center">
             <Image
               src={tech.image}

@@ -1,31 +1,30 @@
 import { TooltipProvider } from "@/components/ui/tooltip";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo, Geist } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fontSans = Archivo({
+  variable: "--font-heading",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const geistSans = Geist({
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Nathaniel Naduaran",
-  description:
-    "Full-stack developer who loves building things from idea to launch.",
+  description: "Who loves building things from idea to launch.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} bg-secondary antialiased`}
+      className={`${fontSans.variable} ${geistSans.variable} bg-secondary antialiased`}
     >
-      <body className="mx-auto max-w-3xl">
+      <body>
         <TooltipProvider>{children}</TooltipProvider>
       </body>
     </html>
