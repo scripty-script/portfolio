@@ -50,7 +50,7 @@ function SectionHeaderDescription({
   return (
     <p
       className={cn(
-        "text-muted-foreground max-w-4xl text-lg text-balance lg:text-3xl",
+        "text-muted-foreground text-lg text-balance lg:text-2xl",
         className,
       )}
       {...props}

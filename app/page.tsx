@@ -1,3 +1,4 @@
+import { HeroTitle } from "@/components/hero-title";
 import {
   Section,
   SectionHeader,
@@ -27,9 +28,7 @@ export default function Home() {
               Nathaniel Naduaran
             </p>
             <div className="flex flex-col gap-2">
-              <SectionHeaderTitle as="h1" className="text-3xl lg:text-6xl">
-                Full-stack developer
-              </SectionHeaderTitle>
+              <HeroTitle className="font-heading text-5xl leading-10 font-semibold tracking-tight" />
 
               <SectionHeaderDescription>
                 who loves building things from idea to launch.
