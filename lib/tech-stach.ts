@@ -2,114 +2,47 @@ import { TechStack } from "@/types";
 
 export const techStacks = new Map<string, TechStack>([
   [
-    "docker",
+    "frontend",
     {
-      label: "Docker",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+      scope: "frontend",
+      tools: ["vite"],
+      frameworks: ["Vue", "React", "Next js", "Inertia js", "Tailwindcss"],
+      languages: ["TypeScript"],
+      description:
+        "Smooth, stable UIs that never stutter. I deliver SSR, accessible design, solid design systems, and 90+ Lighthouse scores.",
     },
   ],
   [
-    "laravel",
+    "backend",
     {
-      label: "Laravel",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
+      scope: "backend",
+      tools: ["Redis", "Mysql", "Docker", "Ansible"],
+      frameworks: ["Laravel", "NodeJs"],
+      languages: ["PHP"],
+      description:
+        "I design and develop backend infrastructure spanning APIs, queueing systems, databases, and caching.",
     },
   ],
   [
-    "php",
+    "testing",
     {
-      label: "PHP",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
+      scope: "testing",
+      tools: ["Github Actions", "Docker"],
+      frameworks: ["Pest"],
+      languages: [],
+      description:
+        "I test at every level: unit, integration, e2e, and load. Bugs get caught before prod, not in it.",
     },
   ],
   [
-    "vue",
+    "deploy",
     {
-      label: "Vue",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg",
-    },
-  ],
-  [
-    "react",
-    {
-      label: "React",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
-    },
-  ],
-  [
-    "typescript",
-    {
-      label: "TypeScript",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
-    },
-  ],
-  [
-    "ansible",
-    {
-      label: "Ansible",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg",
-    },
-  ],
-  [
-    "inertia",
-    {
-      label: "Inertia",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/inertiajs/inertiajs-original.svg",
-    },
-  ],
-  [
-    "next-js",
-    {
-      label: "Next js",
-      image: "/next.svg",
-    },
-  ],
-  [
-    "redis",
-    {
-      label: "Redis",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg",
-    },
-  ],
-  [
-    "mysql",
-    {
-      label: "MySql",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg",
-    },
-  ],
-  [
-    "tailwindcss",
-    {
-      label: "Tailwindcss",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
-    },
-  ],
-  [
-    "nodejs",
-    {
-      label: "NodeJs",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg",
-    },
-  ],
-  [
-    "electron",
-    {
-      label: "Electron",
-      image:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/electron/electron-original.svg",
+      scope: "deploy",
+      tools: ["Github Actions", "Ansible"],
+      frameworks: [],
+      languages: [],
+      description:
+        "I build automated deployment pipelines that ship code reliably and repeatably.",
     },
   ],
 ]);

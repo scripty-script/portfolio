@@ -1,4 +1,7 @@
 export interface TechStack {
-  label: string;
-  image: string;
+  scope: "frontend" | "backend" | "testing" | "deploy";
+  frameworks: string[];
+  tools: string[];
+  languages: string[];
+  description: string;
 }

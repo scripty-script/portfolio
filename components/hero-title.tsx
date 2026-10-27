@@ -1,11 +1,11 @@
 "use client";
+import { Heading } from "@/components/heading";
 import {
   TypewriterEffectSmooth,
   Word,
 } from "@/components/ui/typewriter-effect";
 import { reduce } from "es-toolkit/compat";
 import { useEffect, useEffectEvent, useState } from "react";
-import { SectionHeaderTitle } from "./section";
 
 const words = new Map<number, Word[]>([
   [
@@ -56,18 +56,19 @@ export function HeroTitle({ className }: { className?: string }) {
   }, []);
 
   return (
-    <SectionHeaderTitle
-      as="h1"
+    <Heading
+      as="h6"
       aria-label={reduce(
         words.get(count % 3) as Word[],
         (accumulate, word) => accumulate + word.text + " ",
         "",
       )}
+      className="text-muted-foreground"
     >
       <TypewriterEffectSmooth
         words={words.get(count % 3) as Word[]}
         className={className}
       />
-    </SectionHeaderTitle>
+    </Heading>
   );
 }

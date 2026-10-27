@@ -5,8 +5,9 @@ export const projects = new Map<number, Project>([
     1,
     {
       title: "SalarEase",
-      sub_title: "HR System",
-      image: "/salarease-logo.svg",
+      sub_title:
+        "A comprehensive HR system that handles time tracking, leave requests, payroll processing, and related workflows.",
+      link: "https://salarease-staging.laraflair.com/",
     },
   ],
   [
@@ -14,7 +15,7 @@ export const projects = new Map<number, Project>([
     {
       title: "FAXedge Technologie",
       sub_title: "Transforming FAX communication for the modern era.",
-      image: "/faxedge-logo.svg",
+      link: "https://faxedge.com/",
     },
   ],
   [
@@ -22,7 +23,7 @@ export const projects = new Map<number, Project>([
     {
       title: "Netlink Voice's Connectware",
       sub_title: "Voice. Networking, Managed Services",
-      image: "/netlinkvoice-logo.svg",
+      link: "https://netlinkvoice.com/",
     },
   ],
 ]);
