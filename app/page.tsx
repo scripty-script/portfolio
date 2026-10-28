@@ -15,9 +15,12 @@ export default function Home() {
         <Section className="justify-between pt-10 pb-0">
           <SectionHeader className="mb-0">
             <HeroTitle className="font-heading text-3xl leading-10 font-semibold tracking-tight sm:text-5xl" />
-            <Heading as="h1" className="text-6xl uppercase sm:text-9xl">
-              Nathaniel
-              <span className="ml-10 block sm:ml-20">Naduaran</span>
+            <Heading
+              as="h1"
+              className="text-6xl text-[length:clamp(2.25rem,1.2rem+7.5vw,8rem)] leading-[0.9] uppercase md:text-9xl"
+            >
+              <span>Nathaniel</span>
+              <span className="ml-4 block sm:ml-20">Naduaran</span>
             </Heading>
           </SectionHeader>
 

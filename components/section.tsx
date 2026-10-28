@@ -5,7 +5,7 @@ function Section({ className, ...props }: React.ComponentProps<"section">) {
   return (
     <section
       className={cn(
-        "flex min-h-screen w-full flex-col px-5 py-10 sm:mx-auto sm:max-w-5xl sm:px-2",
+        "flex min-h-screen w-full flex-col px-3 py-10 sm:mx-auto sm:max-w-5xl sm:px-4 lg:px-5",
         className,
       )}
       {...props}
