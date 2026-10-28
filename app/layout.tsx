@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Archivo, Geist } from "next/font/google";
 import "./globals.css";
 
-const fontSans = Archivo({
+const achivo = Archivo({
   variable: "--font-heading",
   subsets: ["latin"],
 });
@@ -22,7 +22,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${fontSans.variable} ${geistSans.variable} bg-secondary antialiased`}
+      className={`${achivo.variable} ${geistSans.variable} bg-background antialiased`}
     >
       <body>
         <TooltipProvider>{children}</TooltipProvider>
